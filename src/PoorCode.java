@@ -203,19 +203,19 @@ String out = "[";
 
 	// Big Sergio Comp8860 -> bIG sERGIO cOMP8860
 	public static String casing(String s) {
-		String out = "";
-		for(int i = 0; i < s.length(); i++) {
-			if(Character.isUpperCase(s.charAt(i))) {
-				out = out + Character.toLowerCase(s.charAt(i));
+		StringBuilder out = new StringBuilder();
+		for (char c : s.toCharArray()) {
+			if (Character.isUpperCase(c)) {
+				out.append(Character.toLowerCase(c));
+			} else if (Character.isLowerCase(c)) {
+				out.append(Character.toUpperCase(c));
+			} else {
+				out.append(c);
 			}
-			else
-				if(Character.isLowerCase(s.charAt(i))) 
-					out = out + Character.toUpperCase(s.charAt(i));
-				else
-					out = out + s.charAt(i);
+		}
+		return out.toString();
 	}
-		return out;
-	}
+	
 	
 	public static int howMany(boolean f, boolean t, boolean k, boolean z) {
 		if(f == true) {
